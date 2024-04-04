@@ -46,8 +46,8 @@ model.fc = nn.Linear(features, 10)  #STL10 has 10 classes
 model = model.to(device)
 optimizers = {
     'Adam': optim.Adam(model.parameters(), lr=0.001),
-    'Adagrad': optim.Adagrad(model.parameters(), lr=0.001),
-    'RMSprop': optim.RMSprop(model.parameters(), lr=0.001)
+    # 'Adagrad': optim.Adagrad(model.parameters(), lr=0.001),
+    # 'RMSprop': optim.RMSprop(model.parameters(), lr=0.001)
 }
 
 criterion = nn.CrossEntropyLoss()
@@ -100,7 +100,7 @@ for optimizer_name, (train_losses, train_accs) in results.items():
     plt.plot(train_losses, label=f'Loss for : {optimizer_name}')
 plt.xlabel('Epoch')
 plt.ylabel('Training Loss')
-plt.title('Comparison of Training loss curves for 3 optimizers')
+# plt.title('Comparison of Training loss curves for 3 optimizers')
 plt.legend()
 plt.show()
 
